@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+  
   has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
 

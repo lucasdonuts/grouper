@@ -26,6 +26,14 @@ const NewUser = () => {
     setErrors([]);
     setIsLoading(true);
 
+    fetch("/signup", {
+      method: "POST",
+      headers: { "Content-Type": 'application/json' },
+      body: JSON.stringify(formData)
+    })
+      .then( res => res.json )
+      .then( console.log )
+
     console.log(formData);
   }
 
@@ -92,7 +100,7 @@ const NewUser = () => {
               <input
                 required
                 onChange={ handleChange }
-                type="text"
+                type="password"
                 className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                 name="password"
                 placeholder="Password"
@@ -106,7 +114,7 @@ const NewUser = () => {
               <input
                 required
                 onChange={ handleChange }
-                type="text"
+                type="password"
                 className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                 name="password_confirmation"
                 value={formData.password_confirmation}

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
   end
 
   def render_not_found_response(error)
-    render json: { errors: error.message }, status: :not_found
+    render json: { errors: ["#{error.model} not found"]}, status: :not_found
   end
 
 end
