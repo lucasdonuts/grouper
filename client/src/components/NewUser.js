@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NewUser = () => {
+const NewUser = ({ onLogin }) => {
   const [ errors, setErrors ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(false);
   const [ formData, setFormData ] = useState({
@@ -31,8 +31,13 @@ const NewUser = () => {
       headers: { "Content-Type": 'application/json' },
       body: JSON.stringify(formData)
     })
-      .then( res => res.json )
-      .then( console.log )
+      .then( res => {
+        if(res.ok){
+          res.json().then(user => console.log(user))
+        } else {
+          res.json().then(json => setErrors(Object.entries(json.errors)))
+        }
+      })
 
     console.log(formData);
   }
@@ -58,7 +63,7 @@ const NewUser = () => {
           <div className="flex gap-4 mb-2">
             <div className=" relative ">
               <input
-                required
+                // required
                 onChange={ handleChange }
                 type="text"
                 id="create-account-first-name"
@@ -159,6 +164,7 @@ const NewUser = () => {
             </button>
           </div>
         </form>
+        { errors ? errors.map(error => <div>{ error[1] }</div>) : null }
       </div>
     </div>
   );
