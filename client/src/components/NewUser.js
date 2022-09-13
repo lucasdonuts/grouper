@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
-const NewUser = ({ onLogin }) => {
+const NewUser = ({ updateCurrentUser }) => {
   const [ errors, setErrors ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(false);
   const [ formData, setFormData ] = useState({
@@ -12,6 +13,8 @@ const NewUser = ({ onLogin }) => {
     image_url: "",
     bio: ""
   });
+
+  const history = useHistory();
 
   const handleChange = (e) => {
     setFormData({
@@ -33,13 +36,14 @@ const NewUser = ({ onLogin }) => {
     })
       .then( res => {
         if(res.ok){
-          res.json().then(user => console.log(user))
+          res.json().then(user => {
+            updateCurrentUser(user);
+            history.push(`/users/${user.id}`)
+          })
         } else {
           res.json().then(json => setErrors(Object.entries(json.errors)))
         }
       })
-
-    console.log(formData);
   }
 
   return (
