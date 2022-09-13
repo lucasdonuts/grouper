@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   delete "/logout", to: "sessions#destroy"
   get "/my_groups", to: "users#my_groups"
+  get "/me", to: "users#show"
 
   resources :users
   resources :groups

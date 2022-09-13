@@ -1,6 +1,6 @@
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NewUser from './components/NewUser';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
@@ -12,6 +12,15 @@ import UserGroups from './components/UserGroups';
 
 function App() {
   const [ currentUser, setCurrentUser ] = useState(false);
+
+  useEffect( () => {
+    fetch('/me')
+      .then( res => {
+        if(res.ok){
+          res.json().then(setCurrentUser)
+        }
+      })
+  }, [])
 
   const updateCurrentUser = (user) => {
     setCurrentUser(user)
