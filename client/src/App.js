@@ -6,7 +6,9 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Profile from './components/Profile';
-import GroupsPage from './components/GroupsPage';
+import GroupsList from './components/GroupsList';
+import GroupPage from './components/GroupPage';
+import UserGroups from './components/UserGroups';
 
 function App() {
   const [ currentUser, setCurrentUser ] = useState(false);
@@ -28,11 +30,17 @@ function App() {
         <Route path="/login">
           <Login updateCurrentUser={ updateCurrentUser } />
         </Route>
-        <Route path="/users/:id">
+        <Route exact path="/users/:id">
           <Profile currentUser={ currentUser } />
         </Route>
+        <Route path="/my_groups">
+          <UserGroups currentUser={ currentUser } />
+        </Route>
+        <Route path="/groups/:id">
+          <GroupPage currentUser={ currentUser } updateCurrentUser={ updateCurrentUser } />
+        </Route>
         <Route path="/groups">
-          <GroupsPage currentUser={ currentUser } />
+          <GroupsList currentUser={ currentUser } />
         </Route>
       </Switch>
     </div>

@@ -6,7 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: current_user, status: :ok
+    user = User.find(params[:id])
+    render json: user, serializer: ShowUserSerializer, status: :ok
+  end
+
+  def my_groups
+    user = User.find_by(id: session[:user_id])
+    render json: user.groups, status: :ok
   end
 
   private

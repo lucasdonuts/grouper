@@ -1,33 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import GroupCard from './GroupCard';
 
-const GroupsPage = ({ currentUser }) => {
-  const [ userGroups, setUserGroups ] = useState([]);
+const GroupsList = () => {
   const [ groups, setGroups ] = useState([]);
   const [ errors, setErrors ] = useState([]);
-
-  const updateUserGroups = (groupData) => {
-    console.log("Groups: ", groupData)
-    console.log("UserGroups: ", currentUser.groups)
-  }
 
   useEffect( () => {
     fetch('/groups')
       .then( res => {
         if(res.ok){
           res.json().then( groupData => {
-            setGroups(groupData);
+            setGroups(groupData)
           } )
         } else {
           res.json().then( data => {
-            setErrors(data.errors)
+            setErrors(data.errors);
           })
         }
-      })
-  }, [])
+      });
+  }, []);
+
+  const groupCards = groups.map( group => {
+    return <GroupCard group={ group } />
+  })
+
+  console.log(groups);
 
   return(
-    <div></div>
+    <div className="grid grid-cols-auto ">
+      { groupCards }
+    </div>
   )
 }
 
-export default GroupsPage;
+export default GroupsList;

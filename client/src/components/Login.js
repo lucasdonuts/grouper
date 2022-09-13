@@ -12,7 +12,7 @@ const Login = ({ updateCurrentUser }) => {
       [e.target.name]: e.target.value
     })
   }
-  console.log(formData)
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch('/login', {
@@ -25,6 +25,7 @@ const Login = ({ updateCurrentUser }) => {
           res.json().then(user => {
             updateCurrentUser(user);
             history.push(`/users/${user.id}`);
+            console.log(user)
           })
         } else {
           res.json().then( data => setErrors(data.errors) );

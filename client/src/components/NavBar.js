@@ -29,16 +29,18 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
 
   const userLinks = (
     <div className="flex">
-      <div class="flex-row gap-4 flex justify-center items-center">
-        <div class="flex-shrink-0">
-            {/* <a href="#" class="block relative">
-                <img alt="profil" src="/images/person/1.jpg" class="mx-auto object-cover rounded-full h-16 w-16 "/>
+      <div className="flex-row gap-4 flex justify-center items-center">
+        <div className="flex-shrink-0">
+            {/* <a href="#" className="block relative">
+                <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-16 w-16 "/>
             </a> */}
         </div>
-        <div class=" flex flex-col">
-            <span class="text-gray-600 dark:text-white text-lg font-medium">
+        <div className=" flex flex-col">
+            <NavLink
+              to={ `/users/${currentUser.id}` }
+              className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 { currentUser.first_name }
-            </span>
+            </NavLink>
         </div>
     </div>
       <button
@@ -71,7 +73,13 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
                     className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     to="/groups"
                   >
-                    Browse Groupes
+                    Browse Groups
+                  </NavLink>
+                  <NavLink
+                    className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    to={ `/my_groups` }
+                  >
+                    Your Groups
                   </NavLink>
                 </div>
               </div>

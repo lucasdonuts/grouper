@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     group = find_group
-    render json: group, status: :ok
+    render json: group, serializer: ShowGroupSerializer, status: :ok
   end
 
   private
