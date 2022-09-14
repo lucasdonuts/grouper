@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import GroupsList from './components/GroupsList';
 import GroupPage from './components/GroupPage';
+import NewGroupForm from './components/NewGroupForm';
 import UserGroups from './components/UserGroups';
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route exact path="/users/:id">
             <Profile currentUser={ currentUser } />
+          </Route>
+          <Route path="/groups/new">
+            <NewGroupForm />
           </Route>
           <Route path="/groups/:id">
             <GroupPage currentUser={ currentUser } updateCurrentUser={ updateCurrentUser } />

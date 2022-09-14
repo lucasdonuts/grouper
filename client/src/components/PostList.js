@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
 
-const PostList = ({ postsToShow }) => {
+const PostList = ({ postsToShow, currentUser, onDeletePost }) => {
   // const [ postsToShow, setPostsToShow ] = useState([]);
 
   // useEffect( () => {
@@ -16,7 +16,7 @@ const PostList = ({ postsToShow }) => {
   // }, [])
 
   const postComponents = postsToShow.map( post => {
-    return <Post key={ post.id } post={ post } />
+    return <Post key={ post.id } post={ post } currentUser={ currentUser } onDeletePost={ onDeletePost } />
   })
 
   return(
