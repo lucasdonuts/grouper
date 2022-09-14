@@ -75,12 +75,12 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
                   >
                     Browse Groups
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     to={ `/my_groups` }
                   >
                     Your Groups
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               </div>
             </div>

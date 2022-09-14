@@ -27,31 +27,30 @@ function App() {
   }
 
   return (
-    <div className="main">
+    <div className="">
       <NavBar currentUser={ currentUser } updateCurrentUser={ updateCurrentUser } />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/signup">
-          <NewUser updateCurrentUser={ updateCurrentUser } />
-        </Route>
-        <Route path="/login">
-          <Login updateCurrentUser={ updateCurrentUser } />
-        </Route>
-        <Route exact path="/users/:id">
-          <Profile currentUser={ currentUser } />
-        </Route>
-        <Route path="/my_groups">
-          <UserGroups currentUser={ currentUser } />
-        </Route>
-        <Route path="/groups/:id">
-          <GroupPage currentUser={ currentUser } updateCurrentUser={ updateCurrentUser } />
-        </Route>
-        <Route path="/groups">
-          <GroupsList currentUser={ currentUser } />
-        </Route>
-      </Switch>
+      <div className="m-auto max-w-3xl">
+        <Switch>
+          <Route exact path="/">
+            { currentUser ? <Profile currentUser={ currentUser } /> : <Home /> }
+          </Route>
+          <Route path="/signup">
+            <NewUser updateCurrentUser={ updateCurrentUser } />
+          </Route>
+          <Route path="/login">
+            <Login updateCurrentUser={ updateCurrentUser } />
+          </Route>
+          <Route exact path="/users/:id">
+            <Profile currentUser={ currentUser } />
+          </Route>
+          <Route path="/groups/:id">
+            <GroupPage currentUser={ currentUser } updateCurrentUser={ updateCurrentUser } />
+          </Route>
+          <Route path="/groups">
+            <GroupsList currentUser={ currentUser } />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }

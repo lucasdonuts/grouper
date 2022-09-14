@@ -21,10 +21,8 @@ const GroupsList = () => {
   }, []);
 
   const groupCards = groups.map( group => {
-    return <GroupCard group={ group } />
+    return <GroupCard key={ group.id } group={ group } />
   })
-
-  console.log(groups);
 
   return(
     <div className="grid grid-cols-auto ">

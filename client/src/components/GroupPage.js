@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import NewPostForm from './NewPostForm';
+import PostList from './PostList';
 
 const GroupPage = ({ currentUser, updateCurrentUser }) => {
   const [ group, setGroup ] = useState({});
+  const [ postsToShow, setPostsToShow ] = useState([]);
   const [ errors, setErrors ] = useState([]);
   const params = useParams();
 
@@ -10,14 +13,30 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
     fetch(`/groups/${params.id}`)
       .then( res => {
         if(res.ok){
-          res.json().then(setGroup)
+          res.json().then(data => {
+            setGroup(data);
+            getPosts(data.id);
+          })
         } else {
           res.json().then( data => setErrors(data.errors) )
         }
       })
-  }, [])
+  }, []);
 
-  console.log(group);
+  const getPosts = (groupId) => {
+    fetch('/posts')
+      .then( res => {
+        if(res.ok){
+          res.json().then(posts => {
+            setPostsToShow(posts.filter( post => post.group_id === groupId ))
+          })
+        } else {
+          res.json().then(data => {
+            setErrors(data.errors);
+          })
+        }
+      })
+  }
 
   const handleJoinGroup = () => {
     fetch('/user_groups', {
@@ -38,16 +57,37 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
       })
   }
 
+  const onNewPost = (newPost) => {
+    setPostsToShow([newPost, ...postsToShow])
+  }
+
+  const loggedInComponents = (
+    <div>
+      <button
+        onClick={ handleJoinGroup }
+        type="button"
+        className="px-4 bg-blue-600 h-10 w-50 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
+          {/* { group.users.includes(currentUser) ? "Leave group" : "Join group" } */}
+          Join Group
+      </button>
+      <div>
+        <NewPostForm group={ group } currentUser={ currentUser } onNewPost={ onNewPost } />
+      </div>
+    </div>
+  )
+
   return(
-    <div className="">
-      <div className="m-auto w-40">
-        <h1 className="text-2xl">{ group.name }</h1>
-        <button
-          onClick={ handleJoinGroup }
-          type="button"
-          className="px-4 bg-blue-600 h-10 w-50 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
-            Join This Group
-        </button>
+    <div className="text-center max-w-7xl">
+      <div className="text-center m-auto">
+        <div className="mb-3">
+          <h1 className="text-2xl">{ group.name }</h1>
+        </div>
+        <div>
+          { currentUser ? loggedInComponents : "" }
+        </div>
+        <div>
+          <PostList postsToShow={ postsToShow } />
+        </div>
       </div>
     </div>
   )

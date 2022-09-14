@@ -25,7 +25,6 @@ const Login = ({ updateCurrentUser }) => {
           res.json().then(user => {
             updateCurrentUser(user);
             history.push(`/users/${user.id}`);
-            console.log(user)
           })
         } else {
           res.json().then( data => setErrors(data.errors) );

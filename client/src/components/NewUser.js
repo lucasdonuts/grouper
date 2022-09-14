@@ -167,7 +167,7 @@ const NewUser = ({ updateCurrentUser }) => {
             </button>
           </div>
         </form>
-        { errors ? errors.map(error => <div>{ error[1] }</div>) : null }
+        { errors ? errors.map(error => <div key={ error }>{ error[1] }</div>) : null }
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GroupCard from './GroupCard';
 
-const UserGroups = ({ currentUser }) => {
-  const groupCards = currentUser.groups.map( group => {
-    return <GroupCard group={ group } />
+const UserGroups = ({ groups }) => {
+
+  const groupCards = groups.map( group => {
+    return <GroupCard key={ group.id } group={ group } />
   })
+
   return(
     <div>
       { groupCards }

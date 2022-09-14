@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 // Default Group Image: http://sharedsuccessglobal.com/marketplace/upload/photos/d-group.jpg
 const GroupCard = ({ group }) => {
   const defaultImgSrc="http://sharedsuccessglobal.com/marketplace/upload/photos/d-group.jpg"
-  console.log(group)
 
   return (
     <div className="w-80 overflow-hidden shadow-lg rounded-lg cursor-pointer">
-      <Link to={ `groups/${group.id}` } className="w-full block h-full">
+      <Link to={ `/groups/${group.id}` } className="w-full block h-full">
         <img
           alt={ group.name }
           src={ group.image_url ? group.image_url : defaultImgSrc }
