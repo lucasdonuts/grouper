@@ -12,7 +12,7 @@ Post.reset_pk_sequence
 
 Faker::Name.unique.clear
 
-10.times do
+20.times do
   User.create!(
     first_name: Faker::Name.unique.first_name,
     last_name: Faker::Name.unique.last_name,
@@ -31,8 +31,17 @@ Group.create(name: "American Football", description: Faker::Lorem.sentence)
 Group.create(name: "Soccer", description: Faker::Lorem.sentence)
 Group.create(name: "Esports", description: Faker::Lorem.sentence)
 
+# All users join random groups
+User.all.each do |user|
+  groups = Group.all.sample(rand(3..15))
+  groups.each do |group|
+    UserGroup.create!(user: user, group: group)
+  end
+end
+
+# Create random posts in each group with users
 Group.all.each do |group|
   rand(3..15).times do
-    Post.create!(text: Faker::Hipster.paragraph, group: group, user: User.all.sample)
-  end
+    Post.create!(text: Faker::Hipster.paragraph, group: group, user: group.users.sample)
+  end unless !group.users
 end

@@ -39,7 +39,7 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
             <NavLink
               to={ `/users/${currentUser.id}` }
               className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                { currentUser.first_name }
+                { currentUser.username }
             </NavLink>
         </div>
     </div>
