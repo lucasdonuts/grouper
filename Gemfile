@@ -16,6 +16,8 @@ gem 'puma', '~> 5.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'activerecord-reset-pk-sequence', '~> 0.2.1'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -41,7 +43,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
-  gem 'activerecord-reset-pk-sequence', '~> 0.2.1'
   gem 'faker', '~> 2.23'
 end
 
