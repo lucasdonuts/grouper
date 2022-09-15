@@ -30,11 +30,11 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
   const userLinks = (
     <div className="flex">
       <div className="flex-row gap-4 flex justify-center items-center">
-        <div className="flex-shrink-0">
-            {/* <a href="#" className="block relative">
-                <img alt="profile" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-16 w-16 "/>
-            </a> */}
-        </div>
+        {/* <div className="flex-shrink-0">
+            <a href="#" className="block relative">
+                <img alt="profile" src="https://icons.iconarchive.com/icons/ariil/alphabet/256/Letter-G-icon.png" className="mx-auto object-cover rounded-full h-16 w-16 "/>
+            </a>
+        </div> */}
         <div className=" flex flex-col">
             <NavLink
               to={ `/users/${currentUser.id}` }
@@ -58,9 +58,9 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex items-center justify-between h-16">
             <div className=" flex items-center">
-              {/* <a className="flex-shrink-0" href="/">
-                <img className="h-8 w-8" src="/icons/rocket.svg" alt="Workflow" />
-              </a> */}
+              <NavLink className="flex-shrink-0" to="/">
+                <img className="h-8 w-8" src="../Letter-G-icon.png" alt="Workflow" />
+              </NavLink>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <NavLink

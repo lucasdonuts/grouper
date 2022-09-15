@@ -134,7 +134,7 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
   return (
     <div className="text-center max-w-7xl">
       <div className="text-center m-auto">
-        <section className="relative bg-white mb-4">
+        <section className="relative bg-white mb-4 max-h-[450px]">
           <img
             className="absolute inset-0 object-[75%] sm:object-[25%] object-cover w-full h-full opacity-25 sm:opacity-100"
             src={group.image_url}
@@ -143,7 +143,7 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
 
           <div className="hidden sm:block sm:inset-0 sm:absolute sm:bg-gradient-to-r sm:from-white sm:to-transparent"></div>
 
-          <div className="relative px-4 py-32 mx-auto max-w-screen-xl lg:h-screen lg:items-center lg:flex">
+          <div className="relative px-4 py-32 mx-auto max-w-screen-xl lg:items-center lg:flex">
             <div className="max-w-xl text-center sm:text-left">
               <h1 className="text-3xl font-extrabold sm:text-5xl">
                 <strong className="font-extrabold text-rose-700 sm:block">

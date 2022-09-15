@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.find(params[:id])
+    user.update!(user_params)
+    render json: user, status: :accepted
+  end
+
   def my_groups
     user = User.find_by(id: session[:user_id])
     render json: user.groups, status: :ok
