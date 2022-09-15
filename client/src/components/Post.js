@@ -7,6 +7,7 @@ const default_img_url =
 const Post = ({ currentUser, post, onDeletePost }) => {
   const [ editMode, setEditMode ] = useState(false);
   const [ content, setContent ] = useState(post.text);
+  const [ updatedAt, setUpdatedAt ] = useState(post.updated_at);
   const user = post.user;
 
   const handleDelete = () => {
@@ -33,6 +34,7 @@ const Post = ({ currentUser, post, onDeletePost }) => {
   const onEditPost = (editedPost) => {
     setEditMode(false);
     setContent(editedPost.text);
+    setUpdatedAt(editedPost.updated_at);
   }
 
   return (
@@ -54,8 +56,8 @@ const Post = ({ currentUser, post, onDeletePost }) => {
             { user.username }
           </h5>
           <p className="text-xs text-gray-500">Posted { post.created_at }</p>
-          { post.created_at !== post.updated_at ?
-            <p className="text-xs text-gray-500">Edited { post.updated_at }</p> :
+          { post.created_at !== updatedAt ?
+            <p className="text-xs text-gray-500">Edited { updatedAt }</p> :
             ''}
         </div>
 
@@ -64,7 +66,7 @@ const Post = ({ currentUser, post, onDeletePost }) => {
 
       <div className="mt-4 sm:pr-8">
         { editMode ?
-          <EditPostForm post={ post } onEditPost={ onEditPost } /> :
+          <EditPostForm post={ post } content={ content } onEditPost={ onEditPost } /> :
           <p className="text-lg text-gray-500">
             { content }
           </p>

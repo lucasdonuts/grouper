@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const EditPostForm = ({ post, onEditPost }) => {
+const EditPostForm = ({ post, content, onEditPost }) => {
   const [ errors, setErrors ] = useState([]);
   const [ formData, setFormData ] = useState({
-    text: post.text
+    text: content
   })
 
   const handleChange = (e) => {
