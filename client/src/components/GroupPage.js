@@ -9,16 +9,12 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
   const [postsToShow, setPostsToShow] = useState([]);
   const [errors, setErrors] = useState([]);
   const params = useParams();
-  // console.log("Current User: ", currentUser);
-  // console.log("Group Users: ", group.users);
-  // console.log("Some: ", group.users.some(user => user.username === currentUser.username))
 
   useEffect(() => {
     fetch(`/groups/${params.id}`).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
           setGroup(data);
-          console.log(data);
           getPosts(data.id);
           setIsInGroup(
             data.users.some((user) => user.username === currentUser.username)
@@ -28,7 +24,7 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
         res.json().then((data) => setErrors(data.errors));
       }
     });
-  }, []);
+  }, [currentUser]);
 
   const getPosts = (groupId) => {
     fetch("/posts").then((res) => {
@@ -130,7 +126,7 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
       )}
     </div>
   );
-        console.log(group.image_url)
+  
   return (
     <div className="text-center max-w-7xl">
       <div className="text-center m-auto">
@@ -154,22 +150,6 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
               <p className="max-w-lg mt-4 sm:leading-relaxed sm:text-xl">
                 {group.description}
               </p>
-
-              {/* <div className="flex flex-wrap mt-8 text-center gap-4">
-                <a
-                  className="block w-full px-12 py-3 text-sm font-medium text-white rounded shadow bg-rose-600 sm:w-auto active:bg-rose-500 hover:bg-rose-700 focus:outline-none focus:ring"
-                  href="/get-started"
-                >
-                  Get Started
-                </a>
-
-                <a
-                  className="block w-full px-12 py-3 text-sm font-medium bg-white rounded shadow text-rose-600 sm:w-auto hover:text-rose-700 active:text-rose-500 focus:outline-none focus:ring"
-                  href="/about"
-                >
-                  Learn More
-                </a>
-              </div> */}
             </div>
           </div>
         </section>

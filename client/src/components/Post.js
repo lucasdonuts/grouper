@@ -38,7 +38,6 @@ const Post = ({ currentUser, post, onDeletePost }) => {
   return (
     <div
       className="relative block p-8 overflow-hidden border border-gray-100 rounded-lg"
-      // href=""
     >
       <span className="absolute inset-x-0 bottom-0 h-2  bg-gradient-to-r from-green-300 via-blue-500 to-indigo-600"></span>
 
@@ -54,7 +53,10 @@ const Post = ({ currentUser, post, onDeletePost }) => {
           <h5 className="text-xl font-bold text-gray-900">
             { user.username }
           </h5>
-          <p className="text-xs text-gray-500">{ post.created_at }</p>
+          <p className="text-xs text-gray-500">Posted { post.created_at }</p>
+          { post.created_at !== post.updated_at ?
+            <p className="text-xs text-gray-500">Edited { post.updated_at }</p> :
+            ''}
         </div>
 
         
