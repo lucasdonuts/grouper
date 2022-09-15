@@ -40,7 +40,7 @@ const Post = ({ currentUser, post, onDeletePost }) => {
       className="relative block p-8 overflow-hidden border border-gray-100 rounded-lg"
       // href=""
     >
-      <span className="absolute inset-x-0 bottom-0 h-2  bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"></span>
+      <span className="absolute inset-x-0 bottom-0 h-2  bg-gradient-to-r from-green-300 via-blue-500 to-indigo-600"></span>
 
       <div className="justify-center sm:flex">
         <div className="flex-shrink-0 hidden ml-3 sm:block">

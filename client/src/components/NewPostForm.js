@@ -24,7 +24,7 @@ const NewPostForm = ({ group, currentUser, onNewPost }) => {
           res.json().then( newPost => {
             onNewPost(newPost);
             e.target.reset();
-           })
+          })
         } else {
           res.json().then( data => setErrors( data.errors ))
         }
@@ -36,9 +36,9 @@ const NewPostForm = ({ group, currentUser, onNewPost }) => {
       <label className="text-gray-700" htmlFor="name">
         <textarea
           onChange={ handleChange }
-          className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+          className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
           id="comment"
-          placeholder="Post text"
+          placeholder="Submit a post"
           name="text"
           rows="5"
           cols="40"
@@ -50,7 +50,9 @@ const NewPostForm = ({ group, currentUser, onNewPost }) => {
               Send
           </button>
       </div>
-      { errors }
+      <div className="col-span-2 text-center text-red-400 font-semibold">
+        { errors }
+      </div>
     </form>
   )
 }

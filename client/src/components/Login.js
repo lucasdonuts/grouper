@@ -33,7 +33,7 @@ const Login = ({ updateCurrentUser }) => {
   }
 
   return (
-    <div className="flex flex-col w-full m-auto max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
+    <div className="flex flex-col w-full m-auto max-w-md px-4 pt-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
       <div className="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
         Login To Your Account
       </div>
@@ -46,7 +46,7 @@ const Login = ({ updateCurrentUser }) => {
                 onChange={ handleChange }
                 name="username"
                 type="text"
-                className=" rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className=" rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
                 placeholder="Username"
               />
             </div>
@@ -58,7 +58,7 @@ const Login = ({ updateCurrentUser }) => {
                 onChange={ handleChange }
                 name="password"
                 type="password"
-                className=" rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                className=" rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"
                 placeholder="Password"
               />
             </div>
@@ -68,13 +68,15 @@ const Login = ({ updateCurrentUser }) => {
           <div className="flex w-full">
             <button
               type="submit"
-              className="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+              className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
             >
               Login
             </button>
           </div>
         </form>
-        { errors ? <div>{ errors }</div> : null }
+        <div className="col-span-2 text-center text-red-400 font-semibold">
+          { errors }
+        </div>
       </div>
       <div className="flex items-center justify-center mt-6">
         {/* <a

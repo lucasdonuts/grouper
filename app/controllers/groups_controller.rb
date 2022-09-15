@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authorized_user, only: [:create, :update]
 
   def index
     groups = Group.all

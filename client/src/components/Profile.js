@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import UserGroups from './UserGroups';
-import { useParams } from 'react-router-dom';
 
 // Default Profile image_url: https://cdn.dribbble.com/users/6142/screenshots/5679189/media/1b96ad1f07feee81fa83c877a1e350ce.png?compress=1&resize=400x300&vertical=top
-const Profile = ({ }) => {
+const Profile = () => {
   const [ user, setUser ] = useState();
   const [ errors, setErrors ] = useState();
   const [ isLoading, setIsLoading ] = useState(true);

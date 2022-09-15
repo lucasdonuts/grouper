@@ -7,7 +7,6 @@ const Home = () => {
       <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
         <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
           <span className="block">Welcome to Grouper</span>
-          <span className="block text-indigo-500">It&#x27;s today or never.</span>
         </h2>
         {/* <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
           I had noticed that both in the very poor and very rich extremes of

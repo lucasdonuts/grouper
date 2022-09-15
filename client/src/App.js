@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="">
       <NavBar currentUser={ currentUser } updateCurrentUser={ updateCurrentUser } />
-      <div className="m-auto max-w-3xl">
+      <div className="m-auto max-w-6xl">
         <Switch>
           <Route exact path="/">
             { currentUser ? <Profile currentUser={ currentUser } /> : <Home /> }
