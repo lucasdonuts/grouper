@@ -30,11 +30,6 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
   const userLinks = (
     <div className="flex">
       <div className="flex-row gap-4 flex justify-center items-center">
-        {/* <div className="flex-shrink-0">
-            <a href="#" className="block relative">
-                <img alt="profile" src="https://icons.iconarchive.com/icons/ariil/alphabet/256/Letter-G-icon.png" className="mx-auto object-cover rounded-full h-16 w-16 "/>
-            </a>
-        </div> */}
         <div className=" flex flex-col">
             <NavLink
               to={ `/users/${currentUser.id}` }

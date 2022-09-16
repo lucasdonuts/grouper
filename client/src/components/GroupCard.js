@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-// Default Group Image: http://sharedsuccessglobal.com/marketplace/upload/photos/d-group.jpg
 const GroupCard = ({ group }) => {
   const defaultImgSrc="http://sharedsuccessglobal.com/marketplace/upload/photos/d-group.jpg"
 

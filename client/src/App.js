@@ -9,7 +9,6 @@ import Profile from './components/Profile';
 import GroupsList from './components/GroupsList';
 import GroupPage from './components/GroupPage';
 import NewGroupForm from './components/NewGroupForm';
-import UserGroups from './components/UserGroups';
 
 function App() {
   const [ currentUser, setCurrentUser ] = useState(false);

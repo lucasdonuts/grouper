@@ -24,7 +24,7 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
         res.json().then((data) => setErrors(data.errors));
       }
     });
-  }, [currentUser]);
+  }, [currentUser, params.id]);
 
   const getPosts = (groupId) => {
     fetch("/posts").then((res) => {
@@ -154,6 +154,7 @@ const GroupPage = ({ currentUser, updateCurrentUser }) => {
             currentUser={currentUser}
             onDeletePost={onDeletePost}
           />
+          { errors }
         </div>
       </div>
     </div>

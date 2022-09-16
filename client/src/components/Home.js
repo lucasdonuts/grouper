@@ -8,10 +8,6 @@ const Home = () => {
         <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
           <span className="block">Welcome to Grouper</span>
         </h2>
-        {/* <p className="text-xl mt-4 max-w-md mx-auto text-gray-400">
-          I had noticed that both in the very poor and very rich extremes of
-          society the mad were often allowed to mingle freely
-        </p> */}
         <div className="lg:mt-0 lg:flex-shrink-0">
           <Link to="/signup" className="mt-12 inline-flex rounded-md">
             <button
