@@ -18,7 +18,7 @@ Faker::Name.unique.clear
     last_name: Faker::Name.unique.last_name,
     username: Faker::Internet.unique.username,
     bio: Faker::Hacker.say_something_smart,
-    image_url: "https://cdn.dribbble.com/users/6142/screenshots/5679189/media/1b96ad1f07feee81fa83c877a1e350ce.png?compress=1&resize=400x300&vertical=top",
+    image_url: Faker::Avatar.image,
     password_digest: User.digest('password')
   )
 end
