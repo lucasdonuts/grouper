@@ -60,12 +60,6 @@ const NavBar = ({ currentUser, updateCurrentUser }) => {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <NavLink
                     className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    to="/"
-                  >
-                    Grouper
-                  </NavLink>
-                  <NavLink
-                    className="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     to="/groups"
                   >
                     Browse Groups
